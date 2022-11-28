@@ -1,11 +1,14 @@
-import React from "react"
-import Header from "../components/common/header.component"
+import React from "react";
+import Header from "../components/common/header.component";
+import LandingPage from "../components/homepage/landing-page";
+import "./styles/homepage.styles.css";
 
 
 const Homepage = () => {
     return (
-        <div>
-            <Header></Header>
+        <div className="homepage">
+            <Header/>
+            <LandingPage/>
         </div>
     )
 }

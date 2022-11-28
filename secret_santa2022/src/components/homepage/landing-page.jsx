@@ -1,10 +1,13 @@
 import React from "react"
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import CssBaseline from '@mui/material/CssBaseline';
+
 
 const LandingPage = () => {
     return (
-        <div>
-
-        </div>
+        <Container maxWidth="sm">
+        </Container>
     )
 }
 
