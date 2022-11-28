@@ -40,19 +40,19 @@ export default function Header() {
        unmountOnExit
    >
        <nav className="Nav">
-           <Link className="option" to='/'>
+           <a href className="option" to='/'>
                Home
-           </Link>
-           <Link className="option" to='/'>
+           </a>
+           <a href className="option" to='/'>
                Articles
-           </Link>
-           <Link className="option" to='/'>
+           </a>
+           <a href className="option" to='/'>
                Most Wanted
-           </Link>
+           </a>
            <button>
-               <Link className="option" to='/'>
+               <a href className="option" to='/'>
                    Sign In 
-               </Link>
+               </a>
            </button>
        </nav>
    </CSSTransition>

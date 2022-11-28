@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect, useRef} from "react"
 import {Link} from 'react-router-dom'
 import CssBaseline from '@mui/material/CssBaseline';
 import LoadingButton from '@mui/lab/LoadingButton';
@@ -8,35 +8,70 @@ import "./styles/opening.styles.css"
 
 const Opening = () => {
 
-    const [isLoading, setIsLoadingDone] = useState(true);
-
-    useEffect(() => {
-        setTimeout(() => setIsLoadingDone(false), 71000)
-    }, []); 
+    const [isCorrect, setIsCorrect] = useState(false);
+    const [showError, setShowError] = useState(false);
+    const [showHint, setShowHint] = useState(false)
+    
+    const amountOfIncorrectLogins = useRef(0)
 
     const handleClick = () => {
-        console.log('Nothing yet')
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        
+        var correctUsername = "petty"
+        var correctPassword = "theft"
+        if (username === correctUsername && password === correctPassword) {
+            setIsCorrect(true);
+        }
+        else {
+            setShowError(true)
+            amountOfIncorrectLogins.current += 1
+            console.log(amountOfIncorrectLogins)
+            if (amountOfIncorrectLogins.current > 4) {
+                setShowHint(true)
+            }
+        }
     }
+
+    useEffect(() => {
+       
+    }, [isCorrect])
 
     return(
             <div className="opening" >
-                    <div className="video-container"> 
-                        <div className="video">
-                            <iframe width="1280" height="720" src="https://www.youtube.com/embed/w4vRJxZ4TZU?autoplay=1" title="Expose the truth" frameborder="0" allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>                       
+                <div className="main_box">
+                    <div className="main_box--main">
+                        <div className="main_box--main--title">
+                            <h4>Rochester Police Database</h4>
+                            <p>Use admin panel to login</p>
+                        </div>
+                        <div className="main_box--main--login">
+                            <input
+                                type='text'
+                                id='username'
+                                className='form-control'
+                                placeholder='username'
+                                autoComplete='false'
+                            />
+                            <input
+                                type="password"
+                                id="password"
+                                className="
+                                form-control"
+                                placeholder="password"
+                            />
+                            <button className="btn btn-success" onClick={handleClick}>
+                                LOGIN
+                            </button>
+                            {showError  &&
+                                <p>Incorrect Credentials</p>
+                            }
+                            {showHint &&
+                                <p>Hint: A petty crime</p>
+                            }
                         </div>
                     </div>
-                    <Link to='/home'>
-                        <LoadingButton
-                            className="load-button"
-                            size="large"
-                            onClick={handleClick}
-                            loading={isLoading}
-                            loadingPosition="end"
-                            variant="contained"
-                        >
-                            Continue to witness the truth...
-                        </LoadingButton>
-                    </Link>
+                </div>          
             </div>
        
     )
