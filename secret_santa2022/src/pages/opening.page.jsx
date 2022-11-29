@@ -1,41 +1,12 @@
-import React, {useState, useEffect, useRef} from "react"
-import {Link} from 'react-router-dom'
-import CssBaseline from '@mui/material/CssBaseline';
-import LoadingButton from '@mui/lab/LoadingButton';
-import { Container } from "@mui/material";
+import React from "react"
 
 import "./styles/opening.styles.css"
 
-const Opening = () => {
-
-    const [isCorrect, setIsCorrect] = useState(false);
-    const [showError, setShowError] = useState(false);
-    const [showHint, setShowHint] = useState(false)
-    
-    const amountOfIncorrectLogins = useRef(0)
-
-    const handleClick = () => {
-        var username = document.getElementById("username").value;
-        var password = document.getElementById("password").value;
-        
-        var correctUsername = "petty"
-        var correctPassword = "theft"
-        if (username === correctUsername && password === correctPassword) {
-            setIsCorrect(true);
-        }
-        else {
-            setShowError(true)
-            amountOfIncorrectLogins.current += 1
-            console.log(amountOfIncorrectLogins)
-            if (amountOfIncorrectLogins.current > 4) {
-                setShowHint(true)
-            }
-        }
-    }
-
-    useEffect(() => {
-       
-    }, [isCorrect])
+const Opening = ({
+    onClick, 
+    showError, 
+    showHint
+}) => {
 
     return(
             <div className="opening" >
@@ -60,7 +31,7 @@ const Opening = () => {
                                 form-control"
                                 placeholder="password"
                             />
-                            <button className="btn btn-success" onClick={handleClick}>
+                            <button className="btn btn-success" onClick={onClick}>
                                 LOGIN
                             </button>
                             {showError  &&
