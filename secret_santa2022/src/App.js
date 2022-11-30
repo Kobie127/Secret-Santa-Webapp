@@ -2,6 +2,7 @@ import React, {useState, useRef, useEffect} from 'react';
 import Homepage from "../src/pages/homepage.page";
 import Opening from "../src/pages/opening.page";
 import MostWantedPage from './pages/most-wanted.page';
+import BaselineTest from './pages/baseline-test.page';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
   return (
     <BrowserRouter>
        <div className="App">
-         <MostWantedPage/>
+         <BaselineTest/>
         {/* {!isCorrect && 
           <Opening 
               onClick={handleClick} 
