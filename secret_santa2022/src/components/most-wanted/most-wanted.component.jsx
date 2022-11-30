@@ -4,6 +4,7 @@ import Container from '@mui/material/Container';
 import Header from "../common/header.component";
 import Footer from "../common/footer.component";
 import MostWantedPoster from "./most-wanted-poster.component";
+import posters from "../../constants/constants";
 
 import "./styles/most-wanted.styles.css";
 
@@ -23,17 +24,24 @@ const suspectIds = [
 
 const MostWanted = () => {
     const [showImage, setShowImage] = useState(false);
+    const [ref, setRef] = useState('');
 
     const currentId = useRef('');
- 
+    const imageIndex = useRef(0);
 
     const handleClick = (event) => {
+       
         var id = event.target.textContent;
-        currentId.current = id
-        console.log(currentId.current);
+        currentId.current = id;
+        posters.forEach((poster => {
+            if (poster.id === currentId.current) {
+                imageIndex.current = poster.imageIndex
+            }
+        }))
+        
+        setRef(imageIndex.current);
         setShowImage(true);
     }
-
 
     return (
         <Container>
@@ -75,7 +83,7 @@ const MostWanted = () => {
                                 Suspect Image Display:
                             </h3>
                             {showImage && 
-                                <MostWantedPoster suspectId={currentId.current}/>
+                                <MostWantedPoster imageIndex={ref}/>
                             }
                             {!showImage && 
                                 <p>No suspect selected.</p>

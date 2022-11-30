@@ -1,26 +1,13 @@
-import React, {useRef, useEffect} from 'react';
+import React from 'react';
 
 import "./styles/most-wanted-poster.styles.css";
 import posters from '../../constants/constants.js';
 
 
-const MostWantedPoster = (suspectId) => {
-    const imgUrl = useRef('')
-
-    useEffect(() => {
-        posters.forEach((poster => {
-            console.log(poster)
-            if (poster.id === suspectId.suspectId) {
-                console.log('dhwew')
-                imgUrl.current = poster.src;
-            }
-        }))
-    }, [suspectId])
-
+const MostWantedPoster = (imageIndex) => {
+    console.log(imageIndex)
     return (
-      <div>
-
-      </div>
+        <img className='poster' src={posters[imageIndex.imageIndex].src} alt='Wanted Poster'/>
     )
 }
 
