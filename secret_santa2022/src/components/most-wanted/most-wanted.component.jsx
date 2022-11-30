@@ -11,15 +11,13 @@ import "./styles/most-wanted.styles.css";
 
 const suspectIds = [
     'Suspect_07102000_Henrietta_585',
-    'Suspect_07102000_Henrietta_585',
-    'Suspect_07102000_Henrietta_585',
-    'Suspect_07102000_Henrietta_585',
-    'Suspect_07102000_Henrietta_585',
-    'Suspect_3333333_Henrietta_585',
-    'Suspect_07102000_Henrietta_585',
-    'Suspect_07102000_Henrietta_585',
-    'Suspect_07102000_Henrietta_585',
-    'Suspect_07102000_Henrietta_585',
+    'Suspect_08272000_Henrietta_585',
+    'Suspect_09152000_Henrietta_585',
+    'Suspect_10271999_Henrietta_585',
+    'Suspect_07172000_Henrietta_585',
+    'Suspect_03272000_Henrietta_585',
+    'Suspect_08261999_Henrietta_585',
+    'Suspect_09102000_Henrietta_585',
 ]
 
 const MostWanted = () => {
