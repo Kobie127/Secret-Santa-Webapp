@@ -1,6 +1,7 @@
 import React, {useState, useRef, useEffect} from 'react';
 import Homepage from "../src/pages/homepage.page";
 import Opening from "../src/pages/opening.page";
+import MostWantedPage from './pages/most-wanted.page';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -38,7 +39,8 @@ function App() {
   return (
     <BrowserRouter>
        <div className="App">
-        {!isCorrect && 
+         <MostWantedPage/>
+        {/* {!isCorrect && 
           <Opening 
               onClick={handleClick} 
               showError={showError}
@@ -48,7 +50,7 @@ function App() {
         {isCorrect &&
           <Homepage/>
         }
-      
+       */}
     </div>
     </BrowserRouter>
    
