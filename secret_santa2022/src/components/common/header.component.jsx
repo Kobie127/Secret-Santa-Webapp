@@ -36,6 +36,7 @@ export default function Header() {
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
+              marginLeft: '6px',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',

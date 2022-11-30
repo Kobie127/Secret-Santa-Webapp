@@ -20,6 +20,8 @@ const suspectIds = [
     'Suspect_09102000_Henrietta_585',
 ]
 
+const shuffledArray = suspectIds.sort((a, b) => 0.5 - Math.random());
+
 const MostWanted = () => {
     const [showImage, setShowImage] = useState(false);
     const [ref, setRef] = useState('');
@@ -66,7 +68,7 @@ const MostWanted = () => {
                             <h3>Active Suspects:</h3>
                             <ul className="active-list">
                                 {
-                                    suspectIds.map((suspect) => (
+                                    shuffledArray.map((suspect) => (
                                         <li id={suspect} onClick={handleClick} className="active-suspect">
                                             {suspect}
                                         </li>
