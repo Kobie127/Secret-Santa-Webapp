@@ -9,7 +9,7 @@ import skye_poster from "../assets/images/wanted Skye.png";
 
 const posters = [
     {id: 'Suspect_07102000_Henrietta_585', imageIndex: 0, src: meg_poster, title:"Meghan"},
-    {id: 'Suspect_08272000_Henrietta_585', imageIndex: 1,  src: aidan_poster, title: 'Aidan'},
+    {id: 'Suspect_08252000_Henrietta_585', imageIndex: 1,  src: aidan_poster, title: 'Aidan'},
     {id: 'Suspect_09152000_Henrietta_585', imageIndex: 2,  src: angela_poster, title: 'Angela'},
     {id: 'Suspect_10271999_Henrietta_585', imageIndex: 3,  src: kobie_poster, title: 'Kobie'},
     {id: 'Suspect_07172000_Henrietta_585', imageIndex: 4,  src: mark_poster, title: 'Mark'},

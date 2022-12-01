@@ -16,7 +16,11 @@
   grid-area: logo;
   height: 70px;
 }
-
+a {
+  text-decoration: none;
+  color: inherit;
+  letter-spacing: 2px;
+}
 .Nav {
   display: grid;
   grid-area: nav;

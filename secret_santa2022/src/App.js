@@ -40,18 +40,33 @@ function App() {
   return (
     <BrowserRouter>
        <div className="App">
-         <BaselineTest/>
-        {/* {!isCorrect && 
-          <Opening 
-              onClick={handleClick} 
-              showError={showError}
-              showHint={showHint}
-          />
-        }
-        {isCorrect &&
-          <Homepage/>
-        }
-       */}
+        <Routes>
+            <Route exact path='/' element={(
+                <div>
+                    {!isCorrect && 
+                      <Opening 
+                          onClick={handleClick} 
+                          showError={showError}
+                          showHint={showHint}
+                      />
+                    }
+                    {isCorrect &&
+                      <Homepage/>
+                    }
+                </div>
+              )}>
+            </Route>
+            <Route exact path='/most-wanted' element={(
+              <MostWantedPage/>
+            )}>
+            </Route>
+            <Route exact path='/baseline-test' element={(
+              <BaselineTest/>
+            )}>   
+            </Route>
+        </Routes>
+     
+      
     </div>
     </BrowserRouter>
    

@@ -8,21 +8,26 @@ import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { Link } from "react-router-dom";
+
 import '../common/styles/header.styles.css';
 
-const pages = ['Reported Crimes', 'Most Wanted', 'Baseline Test'];
+const pages = [
+  {name:'Reported Crimes', link:'/reported-crimes'},
+  {name:'Most Wanted', link:'/most-wanted'}, 
+  {name:'Baseline Test', link: '/baseline-test'}
+];
 
 export default function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  
 
   return (
     <AppBar position="static">
@@ -31,7 +36,6 @@ export default function Header() {
               variant="h6"
               noWrap
               component="a"
-              href="/"
               sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -75,8 +79,17 @@ export default function Header() {
                   }}
               >
                   {pages.map((page) => (
-                      <MenuItem key={page} >
-                          <Typography textAlign="center">{page}</Typography>
+                      <MenuItem key={page.name} >
+                            <Typography  
+                              sx={{
+                                letterSpacing: '.3rem', 
+                                color: 'inherit', 
+                                textDecoration: 'none'
+                              }}>
+                                  <Link to={page.link}>
+                                    {page.name}
+                                  </Link>
+                            </Typography>
                       </MenuItem>
                   ))}
               </Menu>
@@ -102,11 +115,11 @@ export default function Header() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               {pages.map((page) => (
                   <Button
-                      key={page}
+                      key={page.name}
                       onClick={handleCloseNavMenu}
                       sx={{ my: 2, color: 'white', display: 'block' }}
                   >
-                      {page}
+                      <Link to={page.link}>{page.name}</Link>
                   </Button>
                   ))}
           </Box>

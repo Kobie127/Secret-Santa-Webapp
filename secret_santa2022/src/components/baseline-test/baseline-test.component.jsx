@@ -152,7 +152,11 @@ const BaselineForm = () => {
                             </Formik>
                         )}
                     </div>
-                  
+                    <img 
+                            src={require("../../assets/images/roc.png")} 
+                            alt="ROC police logo"
+                            className='logo'
+                    />
                     <Footer/>
                 </div>
              </div>

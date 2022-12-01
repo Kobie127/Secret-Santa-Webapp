@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from "react";
+import React, {useState, useRef} from "react";
 import Grid from '@mui/material/Unstable_Grid2';
 import Container from '@mui/material/Container';
 import Header from "../common/header.component";
@@ -11,7 +11,7 @@ import "./styles/most-wanted.styles.css";
 
 const suspectIds = [
     'Suspect_07102000_Henrietta_585',
-    'Suspect_08272000_Henrietta_585',
+    'Suspect_08252000_Henrietta_585',
     'Suspect_09152000_Henrietta_585',
     'Suspect_10271999_Henrietta_585',
     'Suspect_07172000_Henrietta_585',
