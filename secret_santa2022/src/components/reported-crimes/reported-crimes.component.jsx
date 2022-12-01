@@ -9,13 +9,13 @@ const ReportedCrimes = () => {
             <div className="menu-screen">
                 <div className="menu-screen--main">
                     <Header/>
+                    <img 
+                        src={require("../../assets/images/roc.png")} 
+                        alt="ROC police logo"
+                        className='logo'
+                    />
                     <Footer/>
                 </div>
-                <img 
-                    src={require("../../assets/images/roc.png")} 
-                    alt="ROC police logo"
-                    className='logo'
-                />
             </div>
         </Container>
     )
