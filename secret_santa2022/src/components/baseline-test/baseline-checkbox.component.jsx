@@ -19,10 +19,10 @@ export default function CheckboxField(props) {
     const [touched, error] = at(meta, 'touched', 'error');
     if (touched && error) {
       return (
-        <Alert severity="error">
-          <AlertTitle>Error</AlertTitle>
-            <FormHelperText>{error}</FormHelperText>
-        </Alert>
+      <Alert severity="error">
+        <AlertTitle>Error</AlertTitle>
+          <FormHelperText>{error}</FormHelperText>
+      </Alert>
       )
     }
   }

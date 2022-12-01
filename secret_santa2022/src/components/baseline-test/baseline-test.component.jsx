@@ -10,13 +10,24 @@ import {
 import { Formik, Form } from 'formik';
 import Container from '@mui/material/Container';
 import Terms from './terms.component';
+import Question1 from './questions/question1.component';
+import Question2 from './questions/question2.component';
+import Question3 from './questions/question3.component';
+import Question4 from './questions/question4.component';
+import Question5 from './questions/question5.component';
+import Question6 from './questions/question6.component';
+import Question7 from './questions/question7.component';
+import Question8 from './questions/question8.component';
+import Question9 from './questions/question9.component';
+import Question10 from './questions/question10.component';
+import Results from './result.component';
 import validationSchema from './validation/validation-schema';
 import Header from "../common/header.component";
 import Footer from "../common/footer.component";
 
 import "./styles/baseline-test.styles.css";
 
-const steps = [0, 1, 2 ,3 ,4 ,5 ,6 ,7 ,8 ,9]
+const steps = [0, 1, 2 ,3 ,4 ,5 ,6 ,7 ,8 ,9, 10]
 
 const initalValues = {
     singleCheck: false, 
@@ -25,10 +36,11 @@ const initalValues = {
     question3: "",
     question4: "",
     question5: "",
-    question6: [],
+    question6: "",
     question7: "",
-    question8: [],
+    question8: "",
     question9: "",
+    question10: ""
 }
 
 function _renderStepContent(step) {
@@ -36,23 +48,25 @@ function _renderStepContent(step) {
         case 0:
             return <Terms/>;
         case 1:
-            return <div>HERE</div>
+            return <Question1/>;
         case 2:
-            return <div>HERE</div>
+            return <Question2/>;
         case 3:
-            return <div>HERE</div>
+            return <Question3/>;
         case 4:
-            return <div>HERE</div>
+            return <Question4/>;
         case 5:
-            return <div>HERE</div>
+            return <Question5/>;
         case 6:
-            return <div>HERE</div>
+            return <Question6/>;
         case 7:
-            return <div>HERE</div>
+            return <Question7/>;
         case 8:
-            return <div>HERE</div>
+            return <Question8/>;
         case 9:
-            return <div>HERE</div>
+            return <Question9/>;
+        case 10:
+            return <Question10/>;
         default:
             return <div>Not Found</div>;
     }
@@ -60,6 +74,7 @@ function _renderStepContent(step) {
 
 const BaselineForm = () => {
     const [activeStep, setActiveStep] = useState(0);
+    const [results, setResults] = useState({});
     const currentValidationSchema = validationSchema[activeStep];
     const isLastStep = activeStep === steps.length - 1;
 
@@ -69,7 +84,7 @@ const BaselineForm = () => {
 
     async function _submitForm(values, actions) {
         await _sleep(1000);
-        alert(JSON.stringify(values, null, 2));
+        setResults(values);
         actions.setSubmitting(false);
     
         setActiveStep(activeStep + 1);
@@ -83,12 +98,7 @@ const BaselineForm = () => {
             actions.setTouched({});
             actions.setSubmitting(false);
         }
-    }
-    
-    function _handleBack() {
-        setActiveStep(activeStep - 1);
-    }
-    
+    }    
 
     return (
         <Container>
@@ -107,7 +117,7 @@ const BaselineForm = () => {
                     </Stepper>
                     <div>
                         {activeStep === steps.length ? (
-                        <div>ffff</div>
+                            <Results values={results}/>
                         ) : (
                             <Formik
                                 initialValues={initalValues}
@@ -118,11 +128,6 @@ const BaselineForm = () => {
                                     <Form id='baselineTest'>
                                         {_renderStepContent(activeStep)}
                                             <div className='button'>
-                                                {activeStep !== 0 && (
-                                                    <Button onClick={_handleBack} className='button'>
-                                                    Back
-                                                    </Button>
-                                                )}
                                                 <div className='wrapper'>
                                                     <Button
                                                         disabled={isSubmitting}
