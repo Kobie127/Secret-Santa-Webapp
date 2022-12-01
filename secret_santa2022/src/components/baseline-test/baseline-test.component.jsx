@@ -19,7 +19,7 @@ import "./styles/baseline-test.styles.css";
 const steps = [0, 1, 2 ,3 ,4 ,5 ,6 ,7 ,8 ,9]
 
 const initalValues = {
-    termsCondition: false, 
+    singleCheck: false, 
     question1: "",
     question2: "",
     question3: "",
@@ -60,6 +60,7 @@ function _renderStepContent(step) {
 
 const BaselineForm = () => {
     const [activeStep, setActiveStep] = useState(0);
+    const currentValidationSchema = validationSchema[activeStep];
     const isLastStep = activeStep === steps.length - 1;
 
     function _sleep(ms) {
@@ -110,7 +111,7 @@ const BaselineForm = () => {
                         ) : (
                             <Formik
                                 initialValues={initalValues}
-                                validationSchema={validationSchema}
+                                validationSchema={currentValidationSchema}
                                 onSubmit={_handleSubmit}
                             >
                                 {({ isSubmitting }) => (

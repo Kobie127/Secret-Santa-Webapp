@@ -1,34 +1,45 @@
 import React from 'react';
+import { at } from 'lodash';
+import { useField } from 'formik';
+import {
+  Checkbox,
+  FormControl,
+  FormControlLabel,
+  FormHelperText,
+  Alert,
+  AlertTitle
+} from '@mui/material';
 
-const InputFeedback = ({ error }) =>
-        error ? <div className='input-feedback'>{error}</div> : null;
+export default function CheckboxField(props) {
+  const { label, ...rest } = props;
+  const [field, meta, helper] = useField(props);
+  const { setValue } = helper;
 
-const CheckboxField = ({
-  field: { name, value, onChange, onBlur },
-  form: { errors, touched, setFieldValue },
-  id,
-  label,
-  className,
-  ...props
-}) => {
+  function _renderHelperText() {
+    const [touched, error] = at(meta, 'touched', 'error');
+    if (touched && error) {
+      return (
+        <Alert severity="error">
+          <AlertTitle>Error</AlertTitle>
+            <FormHelperText>{error}</FormHelperText>
+        </Alert>
+      )
+    }
+  }
+
+  function _onChange(e) {
+    setValue(e.target.checked);
+  }
 
   return (
-    <div>
-      <input
-        name={name}
-        id={id}
-        type="checkbox"
-        value={value}
-        checked={value}
-        onChange={onChange}
-        onBlur={onBlur}
-        className='checkboxField'
+    <FormControl {...rest}>
+      <FormControlLabel
+        value={field.checked}
+        checked={field.checked}
+        control={<Checkbox {...field} onChange={_onChange} />}
+        label={label}
       />
-      <label htmlFor={id}>{label}</label>
-      {touched[name] && <InputFeedback error={errors[name]} />
-    }
-    </div>
+      {_renderHelperText()}
+    </FormControl>
   );
-};
-
-export default CheckboxField;
+}

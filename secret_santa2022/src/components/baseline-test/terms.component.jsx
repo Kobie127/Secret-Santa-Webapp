@@ -1,7 +1,5 @@
 import React from 'react';
 import CheckboxField from './baseline-checkbox.component';
-import { Field } from 'formik';
-import { Typography } from '@mui/material';
 
 import "./styles/terms.styles.css";
 
@@ -13,13 +11,10 @@ const Terms = () => {
                 experiencing symptoms of kleptomania.  Please agree to continue.
             </p>
             <div className='checkbox'>
-                <Field
-                    component={CheckboxField}
-                    name="singleCheck"
-                    id="singleCheck"
-                    label="Must agree to continue"
+                <CheckboxField
+                    name='singleCheck'
+                    label='Please agree to the terms above'
                 />
-
             </div>
             
         </div>
