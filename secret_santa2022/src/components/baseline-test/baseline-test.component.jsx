@@ -83,7 +83,7 @@ const BaselineForm = () => {
     }
 
     async function _submitForm(values, actions) {
-        await _sleep(1000);
+        await _sleep(3000);
         setResults(values);
         actions.setSubmitting(false);
     

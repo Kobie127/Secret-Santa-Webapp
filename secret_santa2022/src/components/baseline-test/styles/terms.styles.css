@@ -4,7 +4,9 @@
     align-items: center;
 }
 
-
+.results-link {
+    color: blue;
+}
 
 .termText{
     margin-left: 20px;
