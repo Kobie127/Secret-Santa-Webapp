@@ -2,7 +2,7 @@ import meg_poster from  "../assets/images/poster.jpg";
 import aidan_poster from "../assets/images/wanted Aidan.png";
 import angela_poster from "../assets/images/wanted Angela.png";
 import kobie_poster from "../assets/images/wanted Kobie.png";
-import mark_poster from "../assets/images/wanted Mark.png";
+import mark_poster from "../assets/images/wanted Mark.JPG";
 import paige_poster from "../assets/images/wanted Paige.png";
 import river_poster from "../assets/images/wanted River.png";
 import skye_poster from "../assets/images/wanted Skye.png";

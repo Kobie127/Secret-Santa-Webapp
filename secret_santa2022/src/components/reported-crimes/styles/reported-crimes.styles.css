@@ -1,0 +1,16 @@
+.active-header {
+    display: flex;
+    margin-left: 3rem;
+}
+
+.active-reports {
+    text-decoration: none;
+    color: blue;
+    list-style: none;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.crimes {
+    padding: 5px;
+}
